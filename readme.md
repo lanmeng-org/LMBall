@@ -22,7 +22,7 @@ composer install
 `/admin`
 
 *默认账号*
-`admin@lanmeng.org`
+`admin`
 
 *默认密码*
 `lanmeng.org`

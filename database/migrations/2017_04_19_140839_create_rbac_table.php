@@ -82,6 +82,13 @@ class CreateRbacTable extends Migration
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
+        \DB::table('users')->insert([
+            'id'         => 1,
+            'name'       => 'admin',
+            'email'      => 'admin@lanmeng.org',
+            'password'   => bcrypt('lanmeng.org'),
+        ] + $dateTimes);
+
         \DB::table('rbac_roles')->insert([
                 'id'           => 1,
                 'name'         => 'admin',
