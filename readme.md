@@ -1,5 +1,5 @@
 ### LMBlog
-一个简单的博客程序, 开发中...
+一个URL中转统计程序
 
 ### 环境要求
 `PHP >= 7.0.0`
@@ -8,8 +8,8 @@
 
 执行
 ```
-git clone git@github.com:lanmeng-org/LMBlog.git
-cd LMBlog
+git clone git@github.com:lanmeng-org/LMBall.git
+cd LMBall
 composer install
 ```
 
