@@ -1,5 +1,5 @@
 <?php
-namespace Lanmeng\LaravelRbac;
+namespace Lanmeng\Laravel\Rbac;
 
 use Illuminate\Database\Eloquent\Model;
 

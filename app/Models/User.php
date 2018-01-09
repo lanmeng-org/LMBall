@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Lanmeng\LaravelRbac\Traits\UserRbacTrait;
+use Lanmeng\Laravel\Rbac\Traits\UserRbacTrait;
 
 class User extends Authenticatable
 {

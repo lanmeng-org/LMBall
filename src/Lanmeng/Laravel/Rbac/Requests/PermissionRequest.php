@@ -1,5 +1,5 @@
 <?php
-namespace Lanmeng\LaravelRbac\Requests;
+namespace Lanmeng\Laravel\Rbac\Requests;
 
 class PermissionRequest extends Request
 {

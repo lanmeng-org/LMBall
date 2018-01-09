@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Rbac;
 
 use App\Http\Controllers\Admin\Controller;
-use Lanmeng\LaravelRbac\Requests\RoleRequest;
-use Lanmeng\LaravelRbac\Permission;
+use Lanmeng\Laravel\Rbac\Requests\RoleRequest;
+use Lanmeng\Laravel\Rbac\Permission;
 
 class PermissionController extends Controller
 {

@@ -1,7 +1,7 @@
 <?php
-namespace Lanmeng\LaravelRbac\Traits;
+namespace Lanmeng\Laravel\Rbac\Traits;
 
-use Lanmeng\LaravelRbac\Role;
+use Lanmeng\Laravel\Rbac\Role;
 
 trait UserRbacTrait
 {

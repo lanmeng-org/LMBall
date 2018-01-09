@@ -4,10 +4,6 @@ Route::get('logout', function () {
     Session::flush();
 });
 
-Route::get('assetcc', function() {
-    Cache::forget('larapp.assetts');
-});
-
 Route::group([
     'middleware' => ['admin.auth', 'rbac'],
     'prefix'     => 'admin',

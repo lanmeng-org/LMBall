@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Lanmeng\LaravelRbac\Route;
+use Lanmeng\Laravel\Rbac\Route;
 
 class Rbac
 {

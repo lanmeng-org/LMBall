@@ -1,5 +1,5 @@
 <?php
-namespace Lanmeng\LaravelRbac\Requests;
+namespace Lanmeng\Laravel\Rbac\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
