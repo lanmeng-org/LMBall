@@ -6,7 +6,7 @@ Route::get('logout', function () {
 
 Route::group([
     'middleware' => ['admin.auth', 'rbac'],
-    'prefix'     => 'admin',
+    'prefix'     => env('SITE_ADMIN_PATH'),
     'namespace'  => 'Admin',
     'as'         => 'admin.',
 ], function () {
