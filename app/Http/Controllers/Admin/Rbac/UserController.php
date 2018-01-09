@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin\Rbac;
 
 use App\Http\Controllers\Admin\Controller;
 use App\Models\User;
-use Bigecko\LaravelRbac\Requests\UserRequest;
-use Bigecko\LaravelRbac\Role;
+use Lanmeng\LaravelRbac\Requests\UserRequest;
+use Lanmeng\LaravelRbac\Role;
 
 class UserController extends Controller
 {

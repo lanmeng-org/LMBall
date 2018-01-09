@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin\Rbac;
 
 use App\Http\Controllers\Admin\Controller;
-use Bigecko\LaravelRbac\Permission;
-use Bigecko\LaravelRbac\Requests\RouteRequest;
-use Bigecko\LaravelRbac\Role;
-use Bigecko\LaravelRbac\Route;
+use Lanmeng\LaravelRbac\Permission;
+use Lanmeng\LaravelRbac\Requests\RouteRequest;
+use Lanmeng\LaravelRbac\Role;
+use Lanmeng\LaravelRbac\Route;
 
 class RouteController extends Controller
 {

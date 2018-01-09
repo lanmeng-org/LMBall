@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\Rbac;
 
 use App\Http\Controllers\Admin\Controller;
-use Bigecko\LaravelRbac\Permission;
-use Bigecko\LaravelRbac\Requests\RoleRequest;
-use Bigecko\LaravelRbac\Role;
+use Lanmeng\LaravelRbac\Permission;
+use Lanmeng\LaravelRbac\Requests\RoleRequest;
+use Lanmeng\LaravelRbac\Role;
 
 class RoleController extends Controller
 {

@@ -5,7 +5,7 @@ namespace Lanmeng\Utils;
 /**
  * Class ChinaIDCardUtil
  * 中国公民身份证工具类
- * @package Bigecko\Utils
+ * @package Lanmeng\Utils
  */
 class ChinaIDCardUtil
 {
