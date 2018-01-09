@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'logo_text' => '后台管理',
-    'logo_text_mini' => '后台',
+    'logo_text' => '中转统计系统',
+    'logo_text_mini' => '中转',
 ];
