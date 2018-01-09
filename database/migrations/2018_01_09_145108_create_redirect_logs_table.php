@@ -15,12 +15,16 @@ class CreateRedirectLogsTable extends Migration
     {
         Schema::create('redirect_logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
 
             $table->integer('domain_id');
             $table->integer('url_id');
-            $table->integer('client_ip')->nullable()->comment('访问者IP');
-            $table->string('client_position')->nullable()->comment('访问者地理位置');
+            $table->integer('client_ip')->nullable()->comment('IP');
+            $table->integer('client_country')->nullable()->comment('国家');
+            $table->string('client_city')->nullable()->comment('城市');
+            $table->string('client_region')->nullable()->comment('地区');
+            $table->string('client_isp')->nullable()->comment('访问者运营商');
+
+            $table->timestamps();
         });
     }
 

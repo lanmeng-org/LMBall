@@ -15,12 +15,13 @@ class CreateUrlsTable extends Migration
     {
         Schema::create('urls', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
 
             $table->integer('domain_id')->comment('所属域名ID');
             $table->string('url')->comment('本地访问URL');
             $table->string('redirect_url')->comment('即将跳转URL');
             $table->string('description')->nullable()->comment('简介');
+
+            $table->timestamps();
 
             $table->index('url');
         });

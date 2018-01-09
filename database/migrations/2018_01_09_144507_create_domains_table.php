@@ -15,11 +15,12 @@ class CreateDomainsTable extends Migration
     {
         Schema::create('domains', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
 
             $table->string('name')->comment('域名');
             $table->string('description')->nullable()->comment('描述');
             $table->integer('weight')->default(0)->comment('排序权重');
+
+            $table->timestamps();
 
             $table->index('name');
         });
