@@ -22,9 +22,23 @@ class CreateRedirectLogsTable extends Migration
             $table->integer('client_country')->nullable()->comment('国家');
             $table->string('client_city')->nullable()->comment('城市');
             $table->string('client_region')->nullable()->comment('地区');
-            $table->string('client_isp')->nullable()->comment('访问者运营商');
+            $table->string('client_isp')->nullable()->comment('运营商');
+            $table->string('client_browser_user_agent')->nullable()->comment('浏览器UA');
+            $table->string('client_browser')->nullable()->comment('浏览器');
+            $table->string('client_os')->nullable()->comment('操作系统');
+
+            $table->string('referer_domain')->nullable()->comment('来路域名');
+            $table->string('referer_url')->nullable()->comment('来路地址');
 
             $table->timestamps();
+
+            $table->index('domain_id');
+            $table->index('url_id');
+            $table->index('client_country');
+            $table->index('client_city');
+            $table->index('client_isp');
+            $table->index('client_region');
+            $table->index('referer_domain');
         });
     }
 
