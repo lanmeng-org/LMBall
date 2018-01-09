@@ -19,7 +19,7 @@
 
 @section('body')
   <div class="login-box">
-    <div class="login-logo" style="font-family: 'Microsoft YaHei','Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif">登录</div>
+    <div class="login-logo">登录</div>
 
     <div class="login-box-body">
 
@@ -34,7 +34,7 @@
           @if ($errors->has('name'))
             <span class="help-block">
               <strong>{{ $errors->first('name') }}</strong>
-          </span>
+            </span>
           @endif
         </div>
 
@@ -46,15 +46,28 @@
           @if ($errors->has('password'))
             <span class="help-block">
               <strong>{{ $errors->first('password') }}</strong>
-          </span>
+            </span>
           @endif
+        </div>
+
+        <div class="form-group has-feedback{{ $errors->has('verify_code') ? ' has-error' : '' }}">
+          <input type="text" name="verify_code" class="form-control"
+                 placeholder="验证码">
+          <span class="glyphicon glyphicon-text-background form-control-feedback"></span>
+
+          <span class="help-block">
+            @if ($errors->has('verify_code'))
+              <strong>{{ $errors->first('verify_code') }}</strong>
+            @endif
+          </span>
+          <img src="{{ captcha_src('admin_login') }}" alt="验证码" width="100%" role="button" id="verify_code_image">
         </div>
 
         <div class="row">
           <div class="col-xs-8">
             <div class="checkbox icheck">
               <label>
-                <input type="checkbox"> 记住登录
+                <input type="checkbox" name="remember" id="remember"> 记住登录
               </label>
             </div>
           </div>
@@ -79,6 +92,10 @@
         checkboxClass: 'icheckbox_square-blue',
         radioClass: 'iradio_square-blue',
         increaseArea: '20%'
+      });
+
+      $('#verify_code_image').click(function () {
+        $(this).attr('src', '{{ captcha_src('admin_login') }}_' + Math.random())
       });
     });
   </script>

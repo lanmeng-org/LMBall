@@ -29,3 +29,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 });
 
+Route::get('/{path}', 'HomeController@index')->where('path', '.*');
