@@ -1,16 +1,35 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('logout', function () {
+    Session::flush();
 });
+
+Route::get('assetcc', function() {
+    Cache::forget('larapp.assetts');
+});
+
+Route::group([
+    'middleware' => ['admin.auth', 'rbac'],
+    'prefix'     => 'admin',
+    'namespace'  => 'Admin',
+    'as'         => 'admin.',
+], function () {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    Route::group(['as' => 'rbac.', 'prefix' => 'rbac', 'namespace' => 'Rbac'], function () {
+        Route::resource('permission', 'PermissionController');
+        Route::resource('role', 'RoleController');
+        Route::resource('user', 'UserController');
+        Route::resource('route', 'RouteController');
+    });
+
+    Route::get('profile', 'ProfileController@index')->name('profile');
+    Route::put('profile', 'ProfileController@update')->name('profile.update');
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+});
+
