@@ -6,7 +6,6 @@ use App\Models\Domain;
 use App\Models\RedirectLog;
 use App\Models\Url;
 use Illuminate\Http\Request;
-use Lanmeng\Utils\IPUtil;
 
 class HomeController extends Controller
 {
@@ -28,12 +27,10 @@ class HomeController extends Controller
             abort(404);
         }
 
-        $clientIp = $request->ip();
         RedirectLog::create([
             'domain_id'       => $domain->getKey(),
             'url_id'          => $url->getKey(),
-            'client_ip'       => $clientIp,
-            'client_position' => IPUtil::ip2Position($clientIp),
+            'client_ip'       => $request->ip(),
         ]);
 
         return redirect($url->redirect_url);
