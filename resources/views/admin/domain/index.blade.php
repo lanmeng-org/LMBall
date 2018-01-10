@@ -9,10 +9,10 @@
     <div class="col-md-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title"></h3>
-          <div class="box-tools">
+          <h3 class="box-title">
             <a href="{{ route('admin.domain.create') }}" class="btn btn-primary">新增域名</a>
-          </div>
+          </h3>
+          <div class="box-tools"></div>
         </div>
 
         <div class="box-body">
@@ -22,20 +22,21 @@
                 <th>域名</th>
                 <th>简介</th>
                 <th>添加日期</th>
-                <th width="200">操作</th>
+                <th width="260">操作</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($data as $user)
+              @foreach($domains as $domain)
                 <tr>
-                  <td>{{ $user->name }}</td>
-                  <td>{{ $user->description }}</td>
-                  <td>{{ $user->created_at }}</td>
+                  <td>{{ $domain->name }}</td>
+                  <td>{{ $domain->description }}</td>
+                  <td>{{ $domain->created_at }}</td>
                   <td>
-                    <a href="{{ route('admin.domain.show', ['id' => $user->id]) }}" class="btn btn-info">管理</a>
-                    <a href="{{ route('admin.domain.edit', ['id' => $user->id]) }}" class="btn btn-warning">编辑</a>
+                    <a href="{{ route('admin.domain.show', ['id' => $domain->id]) }}" class="btn btn-primary">详情</a>
+                    <a href="{{ route('admin.url.index', ['domain' => $domain->id]) }}" class="btn btn-info">URL</a>
+                    <a href="{{ route('admin.domain.edit', ['id' => $domain->id]) }}" class="btn btn-warning">编辑</a>
                     <button class="btn btn-danger" data-action="destroy"
-                            data-href="{{ route('admin.domain.destroy', ['id' => $user->id]) }}">删除</button>
+                            data-href="{{ route('admin.domain.destroy', ['id' => $domain->id]) }}">删除</button>
                   </td>
                 </tr>
               @endforeach
@@ -44,7 +45,7 @@
         </div>
 
         <div class="box-footer clearfix">
-          {{ $data->links() }}
+          {{ $domains->links() }}
         </div>
       </div>
     </div>

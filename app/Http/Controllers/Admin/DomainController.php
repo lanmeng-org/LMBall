@@ -9,10 +9,10 @@ class DomainController extends Controller
 {
     public function index()
     {
-        $domainList = Domain::paginate(20);
+        $domains = Domain::paginate(20);
 
         return view('admin.domain.index', [
-            'data' => $domainList,
+            'domains' => $domains,
         ]);
     }
 
@@ -46,7 +46,7 @@ class DomainController extends Controller
 
     public function show(Domain $domain)
     {
-        return redirect()->route('admin.domain.show', [
+        return view('admin.domain.show', [
             'domain' => $domain,
         ]);
     }
