@@ -18,6 +18,10 @@ class IPUtil
             return null;
         }
 
-        return $result;
+        if ($result->code != 0) {
+            return null;
+        }
+
+        return $result->data;
     }
 }

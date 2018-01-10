@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AnalyseRedirectLog;
 use App\Console\Commands\ImportOldDomain;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -15,6 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         ImportOldDomain::class,
+        AnalyseRedirectLog::class,
     ];
 
     /**

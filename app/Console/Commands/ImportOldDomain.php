@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Domain;
 use App\Models\Url;
 use Illuminate\Console\Command;
+use Lanmeng\Utils\PDOUtil;
 
 class ImportOldDomain extends Command
 {
@@ -42,12 +43,7 @@ class ImportOldDomain extends Command
      */
     public function handle()
     {
-        $host = env('DB_HOST');
-        $dbname = env('DB_DATABASE');
-        $username = env('DB_USERNAME');
-        $password = env('DB_PASSWORD');
-
-        $pdo = new \PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+        $pdo = PDOUtil::getPDOInstance();
 
         $this->importDomain($pdo);
         $this->importUrl($pdo);
