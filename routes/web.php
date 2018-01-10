@@ -21,6 +21,8 @@ Route::group([
 
     Route::get('profile', 'ProfileController@index')->name('profile');
     Route::put('profile', 'ProfileController@update')->name('profile.update');
+
+    Route::resource('domain', 'DomainController');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {

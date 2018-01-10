@@ -18,4 +18,12 @@ class Request extends FormRequest
 
         throw new HttpResponseException($response);
     }
+
+    protected function rulesValidate()
+    {
+        $validator = $this->getValidatorInstance();
+        if ($validator->fails()) {
+            $this->failed($validator->getMessageBag(), 400);
+        }
+    }
 }

@@ -29,14 +29,6 @@ class ProfileRequest extends Request
         ];
     }
 
-    protected function rulesValidate()
-    {
-        $validator = $this->getValidatorInstance();
-        if ($validator->fails()) {
-            $this->failed($validator);
-        }
-    }
-
     public function validate()
     {
         $this->rulesValidate();

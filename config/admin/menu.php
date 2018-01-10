@@ -6,6 +6,10 @@ return [
         'role' => null,
 
         'menu' => [
+            '域名管理' => [
+                'icon' => 'fa fa-users',
+                'url' => 'admin/domain',
+            ],
 
             '用户管理' => [
                 'icon' => 'fa fa-users',
