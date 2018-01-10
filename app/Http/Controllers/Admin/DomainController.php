@@ -31,7 +31,6 @@ class DomainController extends Controller
     public function store(DomainRequest $request)
     {
         Domain::create($request->all());
-
         session()->flash('tips.success', $request->get('name'). ' 添加成功');
 
         return redirect()->route('admin.domain.index');
@@ -40,10 +39,16 @@ class DomainController extends Controller
     public function update(Domain $domain, DomainRequest $request)
     {
         $domain->update($request->all());
-
         session()->flash('tips.success', $request->get('name'). ' 更新成功');
 
         return redirect()->route('admin.domain.index');
+    }
+
+    public function show(Domain $domain)
+    {
+        return redirect()->route('admin.domain.show', [
+            'domain' => $domain,
+        ]);
     }
 
     public function destroy(Domain $domain)

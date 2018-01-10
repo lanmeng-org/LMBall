@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/admin-lte/css/AdminLTE.css') }}">
   <link rel="stylesheet" href="{{ asset('vendor/admin-lte/css/skins/skin-black-light.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   @yield('after_styles')
 @endsection
 
@@ -69,7 +70,7 @@
 
   <script>
     $(function () {
-      // Set active state on menu element
+
       var current_url = "{{ request()->fullUrl() }}";
       $("ul.sidebar-menu li a").each(function() {
         if (current_url.startsWith($(this).attr('href')))
@@ -78,7 +79,7 @@
         }
       });
 
-      $('button[action=destroy]').click(function () {
+      $('button[data-action=destroy]').click(function () {
         var $resourceDestroyBox = $('.resource-destroy');
         $resourceDestroyBox.find('.destroy-form').attr('action', $(this).attr('data-href'));
         $resourceDestroyBox.modal();

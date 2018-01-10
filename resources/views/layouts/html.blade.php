@@ -13,12 +13,7 @@
   @show
   <title>@yield('title')</title>
 
-  @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  @show
-
-  <script src="{{ asset('js/viewport.js') }}"></script>
+  @yield('styles')
 </head>
 
 <body class="@yield('body-class') page-{{ str_replace('/', '-', Request::path()) }}">

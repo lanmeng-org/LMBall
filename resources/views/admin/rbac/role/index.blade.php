@@ -37,7 +37,7 @@
                   <td>{{ $item->created_at }}</td>
                   <td>
                     <a href="{{ route('admin.rbac.role.edit', ['id' => $item->getKey()]) }}" class="btn btn-info">编辑</a>
-                    <button class="btn btn-danger" action="destroy"
+                    <button class="btn btn-danger" data-action="destroy"
                             data-href="{{ route('admin.rbac.role.destroy', ['id' => $item->getKey()]) }}">删除</button>
                   </td>
                 </tr>

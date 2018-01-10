@@ -41,7 +41,7 @@
                   <td>{{ $user->created_at }}</td>
                   <td>
                     <a href="{{ route('admin.rbac.user.edit', ['id' => $user->id]) }}" class="btn btn-info">编辑</a>
-                    <button class="btn btn-danger" action="destroy"
+                    <button class="btn btn-danger" data-action="destroy"
                             data-href="{{ route('admin.rbac.user.destroy', ['id' => $user->id]) }}">删除</button>
                   </td>
                 </tr>

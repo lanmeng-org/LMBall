@@ -16,26 +16,25 @@
         </div>
 
         <div class="box-body">
-          <table class="table table-bordered">
+          <table class="table table-bordered table-td-middle">
             <thead>
               <tr>
-                <th style="width: 10px">#</th>
                 <th>域名</th>
                 <th>简介</th>
-                <th>日期</th>
-                <th>操作</th>
+                <th>添加日期</th>
+                <th width="200">操作</th>
               </tr>
             </thead>
             <tbody>
               @foreach($data as $user)
                 <tr>
-                  <td>{{ $user->id }}.</td>
                   <td>{{ $user->name }}</td>
                   <td>{{ $user->description }}</td>
                   <td>{{ $user->created_at }}</td>
                   <td>
-                    <a href="{{ route('admin.domain.edit', ['id' => $user->id]) }}" class="btn btn-info">编辑</a>
-                    <button class="btn btn-danger" action="destroy"
+                    <a href="{{ route('admin.domain.show', ['id' => $user->id]) }}" class="btn btn-info">管理</a>
+                    <a href="{{ route('admin.domain.edit', ['id' => $user->id]) }}" class="btn btn-warning">编辑</a>
+                    <button class="btn btn-danger" data-action="destroy"
                             data-href="{{ route('admin.domain.destroy', ['id' => $user->id]) }}">删除</button>
                   </td>
                 </tr>

@@ -7,7 +7,7 @@ return [
 
         'menu' => [
             '域名管理' => [
-                'icon' => 'fa fa-users',
+                'icon' => 'fa fa-globe',
                 'url' => 'admin/domain',
             ],
 
