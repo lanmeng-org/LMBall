@@ -9,7 +9,7 @@ class DomainController extends Controller
 {
     public function index()
     {
-        $domains = Domain::paginate(20);
+        $domains = Domain::orderBy('weight')->paginate(20);
 
         return view('admin.domain.index', [
             'domains' => $domains,

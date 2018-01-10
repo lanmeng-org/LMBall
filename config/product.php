@@ -10,5 +10,6 @@ return [
         '.party','.date','.trade', '.science','.website','.space','.press','.rocks','.band',
         '.engineer','.market', '.social','.software','.lawyer','.wiki','.design','.live','.mom',
         '.studio','.lol', '.work','.game','.games','.help','.me','.co','.so','.tel','.hk','.asia',
+        '.test',
     ]
 ];
