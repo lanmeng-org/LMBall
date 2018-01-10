@@ -23,7 +23,7 @@ class CreateUrlsTable extends Migration
 
             $table->timestamps();
 
-            $table->index('url');
+            $table->unique('url');
         });
     }
 

@@ -3,15 +3,26 @@
 namespace App\Http\Requests\Admin;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class UrlRequest extends Request
 {
     public function rules()
     {
-        return [
-            'url' => 'required',
+        $rules = [
+            'url' => 'required|unique:urls,url',
             'redirect_url' => 'required',
         ];
+
+        $url = $this->route('url');
+        if ($url) {
+            $rules['url'] = [
+                'required',
+                Rule::unique('urls')->ignore($url->getKey()),
+            ];
+        }
+
+        return $rules;
     }
 
     public function attributes()

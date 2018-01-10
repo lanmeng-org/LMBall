@@ -30,7 +30,7 @@ class HomeController extends Controller
         RedirectLog::create([
             'domain_id'       => $domain->getKey(),
             'url_id'          => $url->getKey(),
-            'client_ip'       => $request->ip(),
+            'client_ip'       => sprintf('%u',ip2long($request->ip())),
         ]);
 
         return redirect($url->redirect_url);

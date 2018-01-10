@@ -3,15 +3,26 @@
 namespace App\Http\Requests\Admin;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class DomainRequest extends Request
 {
     public function rules()
     {
-        return [
-            'name' => 'required',
+        $rules = [
+            'name' => 'required|unique:domains,name',
             'weight' => 'required|integer',
         ];
+
+        $domain = $this->route('domain');
+        if ($domain) {
+            $rules['name'] = [
+                'required',
+                Rule::unique('domains')->ignore($domain->getKey()),
+            ];
+        }
+
+        return $rules;
     }
 
     public function attributes()

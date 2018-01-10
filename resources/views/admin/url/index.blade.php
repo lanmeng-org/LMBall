@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('title')
-  URL管理
+  URL管理 - {{ $domain->name }}
 @endsection
 
 @section('content')
@@ -10,8 +10,9 @@
       <div class="box">
         <div class="box-header">
           <h3 class="box-title">
-            <a href="{{ route('admin.domain.show', ['domain' => $domain->getKey()]) }}" class="btn btn-default">返回域名</a>
-            <a href="{{ route('admin.url.create', ['domain' => $domain->getKey()]) }}" class="btn btn-primary">新增URL</a>
+            <a href="{{ route('admin.domain.index') }}" class="btn btn-default">域名列表</a>
+            <a href="{{ route('admin.domain.show', ['domain' => $domain->getKey()]) }}" class="btn btn-primary">域名详情</a>
+            <a href="{{ route('admin.url.create', ['domain' => $domain->getKey()]) }}" class="btn btn-success">新增URL</a>
           </h3>
           <div class="box-tools"></div>
         </div>

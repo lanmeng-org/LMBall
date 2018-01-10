@@ -19,7 +19,7 @@ class CreateRedirectLogsTable extends Migration
             $table->integer('domain_id');
             $table->integer('url_id');
             $table->integer('client_ip')->nullable()->comment('IP');
-            $table->integer('client_country')->nullable()->comment('国家');
+            $table->string('client_country')->nullable()->comment('国家');
             $table->string('client_city')->nullable()->comment('城市');
             $table->string('client_region')->nullable()->comment('地区');
             $table->string('client_isp')->nullable()->comment('运营商');
