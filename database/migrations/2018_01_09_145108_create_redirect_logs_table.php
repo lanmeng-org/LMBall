@@ -36,9 +36,12 @@ class CreateRedirectLogsTable extends Migration
             $table->index('url_id');
             $table->index('client_country');
             $table->index('client_city');
-            $table->index('client_isp');
             $table->index('client_region');
+            $table->index('client_isp');
+            $table->index('client_browser');
+            $table->index('client_os');
             $table->index('referer_domain');
+            $table->index('referer_url');
         });
     }
 
