@@ -60,10 +60,10 @@ class AnalyseRedirectLog extends Command
                 continue;
             }
 
-            $redirectLog->client_country = $ipInfo->country;
-            $redirectLog->client_city = $ipInfo->city;
-            $redirectLog->client_region = $ipInfo->region;
-            $redirectLog->client_isp = $ipInfo->isp;
+            $redirectLog->client_country = $ipInfo->country ?: null;
+            $redirectLog->client_city = $ipInfo->city ?: null;
+            $redirectLog->client_region = $ipInfo->region ?: null;
+            $redirectLog->client_isp = $ipInfo->isp ?: null;
             $redirectLog->save();
             sleep(2);
         }
