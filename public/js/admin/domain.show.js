@@ -9,12 +9,21 @@ $(function () {
 
 
   function loadECharts(data) {
-    loadCake(data.client_country, 'client_country', 'count_country', '国家');
-    loadCake(data.client_isp, 'client_isp', 'count_isp', '运营商');
 
     loadMap(data.client_region, 'client_region', 'count_region', '区域分布');
 
-    loadMultilayerCake(data.client_os, data.client_browser, 'client_os', 'count_os', 'client_browser', 'count_browser', '系统与浏览器');
+    loadMultilayerCake(
+      data.client_country, data.client_isp,
+      'client_country', 'count_country',
+      'client_isp', 'count_isp',
+      '国家与运营商'
+    );
+    loadMultilayerCake(
+      data.client_os, data.client_browser,
+      'client_os', 'count_os',
+      'client_browser', 'count_browser',
+      '系统与浏览器'
+    );
   }
 
   function loadCake(data, name_key, value_key, title) {

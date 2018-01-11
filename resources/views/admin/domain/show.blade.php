@@ -17,13 +17,13 @@
         </div>
 
         <div class="box-body">
-          <div id="count_region" class="col-md-12 data_analyse_box" style="height: 50vw;"></div>
-          <div id="count_country" class="col-md-6 data_analyse_box"></div>
-          <div id="count_isp" class="col-md-6 data_analyse_box"></div>
-          <div id="count_os" class="data_analyse_box" style="height: 50vw;"></div>
-          <div id="count_browser" class="col-md-6 data_analyse_box"></div>
-          <div id="count_referer_domain" class="col-md-6 data_analyse_box"></div>
-          <div id="count_referer_url" class="col-md-6 data_analyse_box"></div>
+
+          <div id="count_region" style="height: 50vw;"></div>
+          <div id="count_country" style="height: 30vw;"></div>
+          <div id="count_os" style="height: 30vw;"></div>
+          <div id="count_referer_domain" style="height: 300px;"></div>
+          <div id="count_referer_url" style="height: 300px;"></div>
+
         </div>
 
         <div class="box-footer clearfix">
