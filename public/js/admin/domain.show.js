@@ -13,6 +13,8 @@ $(function () {
     loadCake(data.client_isp, 'client_isp', 'count_isp', '运营商');
 
     loadMap(data.client_region, 'client_region', 'count_region', '区域分布');
+
+    loadMultilayerCake(data.client_os, data.client_browser, 'client_os', 'count_os', 'client_browser', 'count_browser', '系统与浏览器');
   }
 
   function loadCake(data, name_key, value_key, title) {
@@ -70,8 +72,6 @@ $(function () {
       });
     });
 
-    console.log(series_data);
-
     var option = {
       title: {
         text: title,
@@ -96,6 +96,97 @@ $(function () {
           mapType: 'china',
           roam: false,
           data: series_data
+        }
+      ]
+    };
+
+    echarts.init(document.getElementById(value_key)).setOption(option);
+  }
+
+  function loadMultilayerCake(data, exterior_data, name_key, value_key, exterior_name_key, exterior_value_key, title) {
+    var series_data = [];
+    var exterior_series_data = [];
+
+    $.each(data, function (index, value) {
+      series_data.push({
+        name: value[name_key],
+        value: value[value_key]
+      });
+    });
+
+    $.each(exterior_data, function (index, value) {
+      exterior_series_data.push({
+        name: value[exterior_name_key],
+        value: value[exterior_value_key]
+      });
+    });
+
+    var option = {
+      title: {
+        text: title,
+        subtext: '',
+        left: 'center'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+      },
+      series: [
+        {
+          name:'访问来源',
+          type:'pie',
+          selectedMode: 'single',
+          radius: [0, '35%'],
+
+          label: {
+            normal: {
+              position: 'inner'
+            }
+          },
+          labelLine: {
+            normal: {
+              show: false
+            }
+          },
+          data: series_data
+        },
+        {
+          name:'访问来源',
+          type:'pie',
+          radius: ['45%', '60%'],
+          label: {
+            normal: {
+              formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+              backgroundColor: '#eee',
+              borderColor: '#aaa',
+              borderWidth: 1,
+              borderRadius: 4,
+              rich: {
+                a: {
+                  color: '#999',
+                  lineHeight: 22,
+                  align: 'center'
+                },
+                hr: {
+                  borderColor: '#aaa',
+                  width: '100%',
+                  borderWidth: 0.5,
+                  height: 0
+                },
+                b: {
+                  fontSize: 16,
+                  lineHeight: 33
+                },
+                per: {
+                  color: '#eee',
+                  backgroundColor: '#334455',
+                  padding: [2, 4],
+                  borderRadius: 2
+                }
+              }
+            }
+          },
+          data: exterior_series_data
         }
       ]
     };
