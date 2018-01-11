@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use App\Http\Requests\Request;
+use App\Models\Url;
 use Illuminate\Validation\Rule;
 
 class UrlRequest extends Request
@@ -10,17 +11,9 @@ class UrlRequest extends Request
     public function rules()
     {
         $rules = [
-            'url' => 'required|unique:urls,url',
+            'url' => 'required',
             'redirect_url' => 'required',
         ];
-
-        $url = $this->route('url');
-        if ($url) {
-            $rules['url'] = [
-                'required',
-                Rule::unique('urls')->ignore($url->getKey()),
-            ];
-        }
 
         return $rules;
     }
@@ -37,5 +30,20 @@ class UrlRequest extends Request
     public function validate()
     {
         $this->rulesValidate();
+        $this->validateUrlUnique();
+    }
+
+    public function validateUrlUnique()
+    {
+        $domain = $this->route('domain');
+        $url = $this->get('url');
+
+        $urlExists = Url::where('domain_id', $domain->getKey())
+            ->where('url', $url)
+            ->exists();
+
+        if ($urlExists) {
+            $this->failed("$domain 域名下已存在 $url");
+        }
     }
 }
