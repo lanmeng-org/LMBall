@@ -8,7 +8,11 @@ class DomainController extends Controller
 {
     public function show(Domain $domain)
     {
-        $data = [];
+        $data = [
+            'count' => \DB::table('redirect_logs')
+                ->where('domain_id', $domain->getKey())
+                ->count(),
+        ];
         $fields = [
             'client_country' => 'count_country',
             'client_city'    => 'count_city',
@@ -16,8 +20,8 @@ class DomainController extends Controller
             'client_isp'     => 'count_isp',
             'client_browser' => 'count_browser',
             'client_os'      => 'count_os',
-            'referer_domain' => 'count_referer_domain',
-            'referer_url'    => 'count_referer_url',
+            'referer_domain' => 'count_domain',
+            'referer_url'    => 'count_url',
         ];
 
         foreach ($fields as $key => $field) {

@@ -17,7 +17,13 @@
         </div>
 
         <div class="box-body">
-
+          <div id="count_region" class="col-md-12 data_analyse_box" style="height: 50vw;"></div>
+          <div id="count_country" class="col-md-6 data_analyse_box"></div>
+          <div id="count_isp" class="col-md-6 data_analyse_box"></div>
+          <div id="count_browser" class="col-md-6 data_analyse_box"></div>
+          <div id="count_os" class="col-md-6 data_analyse_box"></div>
+          <div id="count_referer_domain" class="col-md-6 data_analyse_box"></div>
+          <div id="count_referer_url" class="col-md-6 data_analyse_box"></div>
         </div>
 
         <div class="box-footer clearfix">
@@ -25,6 +31,16 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('scripts')
+  @parent
+  <script>
+    var domain_id = '{{ $domain->getKey() }}';
+  </script>
+  <script src="{{ asset('/vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ asset('/vendor/echarts/map/js/china.js') }}"></script>
+  <script src="{{ asset('/js/admin/domain.show.js') }}"></script>
 @endsection
 
 
