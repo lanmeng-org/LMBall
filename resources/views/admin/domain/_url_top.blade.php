@@ -9,7 +9,7 @@
       <thead>
       <tr>
         <th>域名</th>
-        <th>来量</th>
+        <th>访问量</th>
       </tr>
       </thead>
       <tbody>
