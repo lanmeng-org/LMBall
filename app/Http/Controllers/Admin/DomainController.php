@@ -48,6 +48,7 @@ class DomainController extends Controller
     {
         $refererDomain = \DB::table('redirect_logs')
             ->where('domain_id', $domain->getKey())
+            ->whereNotNull('referer_domain')
             ->orderByDesc('count_domain')
             ->groupBy(['referer_domain'])
             ->selectRaw("referer_domain, count(referer_domain) as count_domain")
@@ -56,6 +57,7 @@ class DomainController extends Controller
 
         $refererUrl = \DB::table('redirect_logs')
             ->where('domain_id', $domain->getKey())
+            ->whereNotNull('referer_url')
             ->orderByDesc('count_url')
             ->groupBy(['referer_url'])
             ->selectRaw("referer_url, count(referer_url) as count_url")
