@@ -68,7 +68,7 @@ class DomainController extends Controller
             ->where('redirect_logs.domain_id', $domain->getKey())
             ->orderByDesc('count_url')
             ->groupBy(['url_id'])
-            ->selectRaw("urls.url, url_id, count(url_id) as count_url")
+            ->selectRaw("urls.url, description, url_id, count(url_id) as count_url")
             ->join('urls', 'urls.id', '=', 'redirect_logs.url_id')
             ->take(20)
             ->get();

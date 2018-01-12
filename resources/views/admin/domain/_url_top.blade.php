@@ -8,14 +8,16 @@
     <table class="table table-bordered table-td-middle">
       <thead>
       <tr>
-        <th>域名</th>
-        <th>访问量</th>
+        <th>URL</th>
+        <th>简介</th>
+        <th style="width: 60px;">访问</th>
       </tr>
       </thead>
       <tbody>
       @foreach($urlTop as $url)
         <tr>
           <td>{{ $url->url }}</td>
+          <td>{{ $url->description }}</td>
           <td>{{ $url->count_url }}</td>
         </tr>
       @endforeach

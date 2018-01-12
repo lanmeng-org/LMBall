@@ -25,6 +25,7 @@ class DomainController extends Controller
         foreach ($fields as $key => $field) {
             $data[$key] = \DB::table('redirect_logs')
                 ->where('domain_id', $domain->getKey())
+                ->whereNotNull($key)
                 ->groupBy([$key])
                 ->selectRaw("$key, count($key) as $field")
                 ->get();
