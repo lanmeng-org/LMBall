@@ -20,12 +20,10 @@
 
           <div class="row">
             {{--URL排行--}}
-            <div class="col-md-6">
-
-            </div>
+            <div class="col-md-6">@include('admin.domain._url_top')</div>
             {{--来路分析--}}
             <div class="col-md-6">
-              <div class="nav-tabs-custom">
+              <div class="nav-tabs-custom box box-primary">
                 <ul class="nav nav-tabs pull-right">
                   <li>
                     <a href="#tab_referer_url" data-toggle="tab">地址</a>
@@ -33,9 +31,7 @@
                   <li class="active">
                     <a href="#tab_referer_domain" data-toggle="tab">域名</a>
                   </li>
-                  <li class="pull-left header">
-                    <i class="fa fa-th"></i>来路分析
-                  </li>
+                  <li class="pull-left header" style="font-size: 18px;">来路分析</li>
                 </ul>
 
                 <div class="tab-content">
