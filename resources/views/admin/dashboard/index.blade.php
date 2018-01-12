@@ -12,10 +12,10 @@
           <h3>{{ $domainNumber }}</h3>
           <p>域名数量</p>
         </div>
-        <div class="icon">
-          <i class="fa fa-globe"></i>
-        </div>
-        <a href="#" class="small-box-footer">查看更多 <i class="fa fa-arrow-circle-right"></i></a>
+        <div class="icon"><i class="fa fa-globe"></i></div>
+        <a href="{{ route('admin.domain.index') }}" class="small-box-footer">
+          查看更多 <i class="fa fa-arrow-circle-right"></i>
+        </a>
       </div>
     </div>
 
@@ -25,10 +25,10 @@
           <h3>{{ $urlNumber }}</h3>
           <p>URL数量</p>
         </div>
-        <div class="icon">
-          <i class="fa fa-link"></i>
-        </div>
-        <a href="#" class="small-box-footer">查看更多 <i class="fa fa-arrow-circle-right"></i></a>
+        <div class="icon"><i class="fa fa-link"></i></div>
+        <a href="{{ route('admin.domain.index') }}" class="small-box-footer">
+          查看更多 <i class="fa fa-arrow-circle-right"></i>
+        </a>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
           <p>近7日访问量</p>
         </div>
         <div class="icon">
-          <i class="fa fa-eye"></i>
+          <i class="fa fa-eye-slash"></i>
         </div>
         <a href="#" class="small-box-footer">查看更多 <i class="fa fa-arrow-circle-right"></i></a>
       </div>
@@ -52,7 +52,7 @@
           <p>近30日访问量</p>
         </div>
         <div class="icon">
-          <i class="ion ion-pie-graph"></i>
+          <i class="fa fa-eye"></i>
         </div>
         <a href="#" class="small-box-footer">查看更多 <i class="fa fa-arrow-circle-right"></i></a>
       </div>
