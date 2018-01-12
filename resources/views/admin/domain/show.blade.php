@@ -26,22 +26,22 @@
               <div class="nav-tabs-custom box box-primary">
                 <ul class="nav nav-tabs pull-right">
                   <li>
-                    <a href="#tab_referer_url" data-toggle="tab">地址</a>
+                    <a href="#tab_referer_domain" data-toggle="tab">域名</a>
                   </li>
                   <li class="active">
-                    <a href="#tab_referer_domain" data-toggle="tab">域名</a>
+                    <a href="#tab_referer_url" data-toggle="tab">地址</a>
                   </li>
                   <li class="pull-left header" style="font-size: 18px;">来路分析</li>
                 </ul>
 
                 <div class="tab-content">
                   {{--来路域名--}}
-                  <div class="tab-pane active" id="tab_referer_domain">
+                  <div class="tab-pane" id="tab_referer_domain">
                     @include('admin.domain._referer_domain')
                   </div>
 
                   {{--来路URL--}}
-                  <div class="tab-pane" id="tab_referer_url">
+                  <div class="tab-pane active" id="tab_referer_url">
                     @include('admin.domain._referer_url')
                   </div>
                 </div>
