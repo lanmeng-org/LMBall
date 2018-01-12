@@ -18,12 +18,85 @@
 
         <div class="box-body">
 
-          <div id="count_region" style="height: 50vw;"></div>
-          <div id="count_country" style="height: 30vw;"></div>
-          <div id="count_os" style="height: 30vw;"></div>
-          <div id="count_referer_domain" style="height: 300px;"></div>
-          <div id="count_referer_url" style="height: 300px;"></div>
+          <div class="row">
+            {{--URL排行--}}
+            <div class="col-md-6">
 
+            </div>
+            {{--来路分析--}}
+            <div class="col-md-6">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs pull-right">
+                  <li>
+                    <a href="#tab_referer_url" data-toggle="tab">地址</a>
+                  </li>
+                  <li class="active">
+                    <a href="#tab_referer_domain" data-toggle="tab">域名</a>
+                  </li>
+                  <li class="pull-left header">
+                    <i class="fa fa-th"></i>来路分析
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+                  {{--来路域名--}}
+                  <div class="tab-pane active" id="tab_referer_domain">
+                    @include('admin.domain._referer_domain')
+                  </div>
+
+                  {{--来路URL--}}
+                  <div class="tab-pane" id="tab_referer_url">
+                    @include('admin.domain._referer_url')
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{--区域分布--}}
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">区域分布</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body" id="count_region" style="height: 50vw;"></div>
+          </div>
+          <div class="row">
+            {{--国家与运营商--}}
+            <div class="col-lg-6">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">国家与运营商</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fa fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div id="count_country" class="box-body" style="height: 30vw;"></div>
+              </div>
+            </div>
+            {{--系统与浏览器--}}
+            <div class="col-lg-6">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">系统与浏览器</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fa fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div id="count_os" class="box-body" style="height: 30vw;"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="box-footer clearfix">

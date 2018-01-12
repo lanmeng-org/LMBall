@@ -46,8 +46,28 @@ class DomainController extends Controller
 
     public function show(Domain $domain)
     {
+        $refererDomain = \DB::table('redirect_logs')
+            ->where('domain_id', $domain->getKey())
+            ->orderByDesc('count_domain')
+            ->groupBy(['referer_domain'])
+            ->selectRaw("referer_domain, count(referer_domain) as count_domain")
+            ->take(20)
+            ->get();
+
+        $refererUrl = \DB::table('redirect_logs')
+            ->where('domain_id', $domain->getKey())
+            ->orderByDesc('count_url')
+            ->groupBy(['referer_url'])
+            ->selectRaw("referer_url, count(referer_url) as count_url")
+            ->take(20)
+            ->get();
+
         return view('admin.domain.show', [
             'domain' => $domain,
+            'referer' => [
+                'domain' => $refererDomain,
+                'url' => $refererUrl,
+            ]
         ]);
     }
 

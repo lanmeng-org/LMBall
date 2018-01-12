@@ -7,7 +7,6 @@ $(function () {
       loadECharts(response);
     });
 
-
   function loadECharts(data) {
 
     loadMap(data.client_region, 'client_region', 'count_region', '区域分布');
@@ -26,7 +25,7 @@ $(function () {
     );
   }
 
-  function loadCake(data, name_key, value_key, title) {
+  function loadCake(data, name_key, value_key) {
     var legend_data = [];
     var series_data = [];
 
@@ -39,10 +38,6 @@ $(function () {
     });
 
     var option = {
-      title: {
-        text: title,
-        x: 'center'
-      },
       tooltip: {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -71,22 +66,17 @@ $(function () {
     echarts.init(document.getElementById(value_key)).setOption(option);
   }
 
-  function loadMap(data, name_key, value_key, title) {
+  function loadMap(data, name_key, value_key) {
     var series_data = [];
 
     $.each(data, function (index, value) {
       series_data.push({
-        name: value[name_key].replace('省', '').replace('市', ''),
+        name: value[name_key] ? value[name_key].replace('省', '').replace('市', '') : '未知',
         value: value[value_key]
       });
     });
 
     var option = {
-      title: {
-        text: title,
-        subtext: '',
-        left: 'center'
-      },
       tooltip: {
         trigger: 'item'
       },
@@ -112,7 +102,7 @@ $(function () {
     echarts.init(document.getElementById(value_key)).setOption(option);
   }
 
-  function loadMultilayerCake(data, exterior_data, name_key, value_key, exterior_name_key, exterior_value_key, title) {
+  function loadMultilayerCake(data, exterior_data, name_key, value_key, exterior_name_key, exterior_value_key) {
     var series_data = [];
     var exterior_series_data = [];
 
@@ -131,11 +121,6 @@ $(function () {
     });
 
     var option = {
-      title: {
-        text: title,
-        subtext: '',
-        left: 'center'
-      },
       tooltip: {
         trigger: 'item',
         formatter: "{a} <br/>{b}: {c} ({d}%)"
