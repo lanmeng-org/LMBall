@@ -8,7 +8,7 @@ return [
         'menu' => [
             '网站概况' => [
                 'icon' => 'fa fa-dashboard',
-                'url' => 'admin',
+                'url' => 'admin?dashboard',
             ],
 
             '域名管理' => [

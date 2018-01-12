@@ -1,5 +1,5 @@
 <header class="main-header">
-  <a href="{{ route('admin.dashboard') }}" class="logo">
+  <a href="{{ url('admin?dashboard') }}" class="logo">
     <span class="logo-mini">{{ config('admin.base.logo_text_mini') }}</span>
     <span class="logo-lg">{{ config('admin.base.logo_text') }}</span>
   </a>
@@ -11,8 +11,7 @@
     </a>
 
     <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-      </ul>
+      <ul class="nav navbar-nav"></ul>
     </div>
   </nav>
 </header>
