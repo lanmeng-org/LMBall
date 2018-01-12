@@ -1,6 +1,6 @@
 $(function () {
   $.get(app.url('/webApi/admin/domain/' + domain_id))
-    .error(function (response) {
+    .error(function () {
       alert('请求接口失败, 请刷新页面重试');
     })
     .done(function (response) {
@@ -13,19 +13,18 @@ $(function () {
 
     loadMultilayerCake(
       data.client_country, data.client_isp,
-      'client_country', 'count_country',
-      'client_isp', 'count_isp',
-      '国家与运营商'
+      'client_country', 'count_country', '国家',
+      'client_isp', 'count_isp', '运营商'
     );
+
     loadMultilayerCake(
       data.client_os, data.client_browser,
-      'client_os', 'count_os',
-      'client_browser', 'count_browser',
-      '系统与浏览器'
+      'client_os', 'count_os', '操作系统',
+      'client_browser', 'count_browser', '浏览器'
     );
   }
 
-  function loadCake(data, name_key, value_key) {
+  function loadCake(data, name_key, value_key, series_name) {
     var legend_data = [];
     var series_data = [];
 
@@ -49,7 +48,7 @@ $(function () {
       },
       series: [
         {
-          name: '访问来源',
+          name: series_name,
           type: 'pie',
           data: series_data,
           itemStyle: {
@@ -90,7 +89,7 @@ $(function () {
       },
       series: [
         {
-          name: '访问来源',
+          name: '区域',
           type: 'map',
           mapType: 'china',
           roam: false,
@@ -102,7 +101,11 @@ $(function () {
     echarts.init(document.getElementById(value_key)).setOption(option);
   }
 
-  function loadMultilayerCake(data, exterior_data, name_key, value_key, exterior_name_key, exterior_value_key) {
+  function loadMultilayerCake(
+    data, exterior_data,
+    name_key, value_key, series_name,
+    exterior_name_key, exterior_value_key, exterior_series_name
+  ) {
     var series_data = [];
     var exterior_series_data = [];
 
@@ -127,7 +130,7 @@ $(function () {
       },
       series: [
         {
-          name:'访问来源',
+          name:series_name,
           type:'pie',
           selectedMode: 'single',
           radius: [0, '35%'],
@@ -145,7 +148,7 @@ $(function () {
           data: series_data
         },
         {
-          name:'访问来源',
+          name: exterior_series_name,
           type:'pie',
           radius: ['45%', '60%'],
           label: {
