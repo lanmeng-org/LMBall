@@ -6,6 +6,11 @@ return [
         'role' => null,
 
         'menu' => [
+            '网站概况' => [
+                'icon' => 'fa fa-dashboard',
+                'url' => 'admin',
+            ],
+
             '域名管理' => [
                 'icon' => 'fa fa-globe',
                 'url' => 'admin/domain',
