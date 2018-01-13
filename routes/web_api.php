@@ -6,4 +6,5 @@ Route::group([
     'prefix'     => env('SITE_ADMIN_PATH'),
 ], function (){
     Route::resource('domain', 'DomainController', ['only' => ['show']]);
+    Route::resource('viewCount', 'ViewCountController', ['only' => ['index']]);
 });

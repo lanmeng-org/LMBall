@@ -109,6 +109,7 @@
   </script>
   <script src="{{ asset('/vendor/echarts/echarts.min.js') }}"></script>
   <script src="{{ asset('/vendor/echarts/map/js/china.js') }}"></script>
+  <script src="{{ asset('/js/admin/echarts.util.js') }}"></script>
   <script src="{{ asset('/js/admin/domain.show.js') }}"></script>
 @endsection
 
