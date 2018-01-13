@@ -241,7 +241,7 @@ function loadLine(data, x_key, y_key, title) {
       showSymbol: false,
       lineStyle: {
         normal: {
-          width: 1
+          width: 2
         }
       },
       areaStyle: {
@@ -266,7 +266,7 @@ function loadLine(data, x_key, y_key, title) {
       },
       data: yData
     }]
-  }
+  };
 
   echarts.init(document.getElementById(y_key)).setOption(option);
 }
