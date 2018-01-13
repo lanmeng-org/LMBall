@@ -1,7 +1,7 @@
 <table class="table table-bordered table-td-middle" style="margin-bottom: 0;">
   <thead>
   <tr>
-    <th>域名</th>
+    <th>URL</th>
     <th style="width: 60px;">来量</th>
   </tr>
   </thead>
